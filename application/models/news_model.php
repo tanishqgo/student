@@ -10,11 +10,11 @@
    	  {
    	  	   if($slug == FALSE)
    	  	   {
-   	  	   	  $query = $this->db->get('news');
+   	  	   	  $query = $this->db->query('SELECT * from news');
    	  	   	  return $query->result_array();
    	  	   }
    	  	   
-           $query = $this->db->get_where('news', array('slug' => $slug));
+           $query = $this->db->query('SELECT id,title,text from news where slug="'.$slug.'"');
    	  	   return $query->result_array();
 
    	  }
